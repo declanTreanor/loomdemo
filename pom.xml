@@ -18,6 +18,11 @@
     </properties>
     <dependencies>
         <dependency>
+            <groupId>org.eclipse.ecf</groupId>
+            <artifactId>org.apache.commons.codec</artifactId>
+            <version>1.9.0.v20170208-1614</version>
+        </dependency>
+        <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.9.1</version>
