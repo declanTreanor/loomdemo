@@ -1,12 +1,16 @@
 package com.eon.jdk19loom;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.util.StopWatch;
 
+import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class StructuredConcurrencyExampleTest {
+
+	public static final String DECLAN = "declan";
 
 	@Test
 	void getStringInAConvolutedWay() throws ExecutionException, InterruptedException {
@@ -29,14 +33,20 @@ class StructuredConcurrencyExampleTest {
 	}
 
 	@Test
-	void testSoundexDemo4(){
+	void testSoundexDemo4() throws IOException {
 		assertTrue(new StructuredConcurrencyExample().soundSimilarWithTolerance("byte","bite",0));
 		assertTrue(new StructuredConcurrencyExample().soundSimilarWithTolerance("reid","reed",0));
 		assertTrue(new StructuredConcurrencyExample().soundSimilarWithTolerance("jik","jick",0));
 		assertFalse(new StructuredConcurrencyExample().soundSimilarWithTolerance("home","ute",10));
 	}
 
+	@Test
+	void findWordLike() throws IOException {
+		StopWatch stopWatch=new StopWatch();
+		stopWatch.start();
+		String homonym = new StructuredConcurrencyExample().findPageContainingWordLike(DECLAN);
+		stopWatch.stop();
+		System.out.println(homonym.substring(homonym.indexOf("here:")+6,homonym.indexOf(". on "))+" is not really like "+DECLAN+", in "+stopWatch.prettyPrint());
 
-
-
+	}
 }
