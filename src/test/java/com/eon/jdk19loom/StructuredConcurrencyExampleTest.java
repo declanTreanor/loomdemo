@@ -15,7 +15,7 @@ class StructuredConcurrencyExampleTest {
 	@Test
 	void getStringInAConvolutedWay() throws ExecutionException, InterruptedException {
 		String hello = new StructuredConcurrencyExample().getStringInAConvolutedWay();
-		System.out.println(hello+", world");
+		assertEquals("hello, world",hello+", world");
 	}
 //	@Test
 //	void testSoundexDemo(){

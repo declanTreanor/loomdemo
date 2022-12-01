@@ -108,8 +108,6 @@ public final class StructuredConcurrencyExample extends AbstractLoomExample {
 
 		    return scope.result();
 		}
-		
-		
 	}
 
 	private String getHello() {
